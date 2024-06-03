@@ -1,9 +1,6 @@
 package org.utn.ba.salvandoanimalespracticaintegradora.entidades.Animal;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.utn.ba.salvandoanimalespracticaintegradora.entidades.Persistente;
@@ -15,7 +12,11 @@ import java.util.List;
 @Getter
 @Entity
 public class Especie extends Persistente {
+
+    @Column
     private String nombre;
+
+    @Column
     private String descripcion;
     @ManyToMany
     @JoinTable(inverseJoinColumns = @JoinColumn(name="caracteristica_id", referencedColumnName = "id"), joinColumns =  @JoinColumn(name="especia_id", referencedColumnName = "id"))
