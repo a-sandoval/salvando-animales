@@ -1,9 +1,10 @@
 package org.utn.ba.salvandoanimalespracticaintegradora.entidades.Dispositivo;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.utn.ba.salvandoanimalespracticaintegradora.entidades.EstrategiaRecepcion.EstrategiaRecepcion;
+import org.utn.ba.salvandoanimalespracticaintegradora.entidades.EstrategiaRecepcion.converterEstrategiaDeRecepcion;
 import org.utn.ba.salvandoanimalespracticaintegradora.entidades.Persistente;
 
 import java.util.ArrayList;
@@ -13,10 +14,18 @@ import java.util.List;
 @Setter
 @Entity
 public class Sensor extends Persistente {
-    private Long identificador;
     private TipoSensor tipoSensor;
+
+    @OneToMany
+    @JoinColumn(name="sensor_id", referencedColumnName = "id")
     private List<Medicion> mediciones;
+
+    @Convert(converter = converterEstrategiaDeRecepcion.class)
+    @Column(name = "estrategia_recepcion")
     private EstrategiaRecepcion receptor;
+
+    @ManyToOne
+    private Dispositivo dispositivo;
 
     public Sensor() {
         mediciones = new ArrayList<>();

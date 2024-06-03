@@ -1,6 +1,8 @@
 package org.utn.ba.salvandoanimalespracticaintegradora.entidades.Animal;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
 import org.utn.ba.salvandoanimalespracticaintegradora.entidades.Persistente;
@@ -13,6 +15,8 @@ import java.util.List;
 @Entity
 public class Colonia extends Persistente {
     private String nombre;
+    @OneToMany
+    @JoinColumn(name="colonia_id", referencedColumnName = "id")
     private List<Grupo> grupos;
 
     public Colonia() {

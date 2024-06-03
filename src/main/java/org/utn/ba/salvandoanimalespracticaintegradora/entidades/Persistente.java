@@ -12,7 +12,4 @@ public abstract class Persistente {
     @GeneratedValue
     private Long id;
 
-    private Boolean activo;
-
-    private LocalDate fecha_creacion;
 }

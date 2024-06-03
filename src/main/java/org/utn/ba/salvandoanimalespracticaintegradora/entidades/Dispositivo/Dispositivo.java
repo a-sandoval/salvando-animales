@@ -1,6 +1,9 @@
 package org.utn.ba.salvandoanimalespracticaintegradora.entidades.Dispositivo;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
 import org.utn.ba.salvandoanimalespracticaintegradora.entidades.Persistente;
@@ -12,7 +15,8 @@ import java.util.List;
 @Getter
 @Entity
 public class Dispositivo extends Persistente {
-    private Long numero;
+
+    @OneToMany(mappedBy = "dispositivo", cascade = CascadeType.ALL)
     private List<Sensor> sensores;
 
     public Dispositivo() {
