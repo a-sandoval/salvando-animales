@@ -1,14 +1,17 @@
 package org.utn.ba.salvandoanimalespracticaintegradora.entidades.Animal;
 
+import jakarta.persistence.Entity;
 import lombok.Getter;
 import lombok.Setter;
+import org.utn.ba.salvandoanimalespracticaintegradora.entidades.Persistente;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Getter
 @Setter
-public class Grupo {
+@Entity
+public class Grupo extends Persistente {
     private ColorGrupo color;
     private List<Animal> animales;
 

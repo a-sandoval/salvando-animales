@@ -1,14 +1,17 @@
 package org.utn.ba.salvandoanimalespracticaintegradora.entidades.Dispositivo;
 
+import jakarta.persistence.Entity;
 import lombok.Getter;
 import lombok.Setter;
+import org.utn.ba.salvandoanimalespracticaintegradora.entidades.Persistente;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Setter
 @Getter
-public class Dispositivo {
+@Entity
+public class Dispositivo extends Persistente {
     private Long numero;
     private List<Sensor> sensores;
 

@@ -1,14 +1,17 @@
 package org.utn.ba.salvandoanimalespracticaintegradora.entidades.Estudio;
 
+import jakarta.persistence.Entity;
 import lombok.Getter;
 import lombok.Setter;
+import org.utn.ba.salvandoanimalespracticaintegradora.entidades.Persistente;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Getter
 @Setter
-public class Seccion {
+@Entity
+public class Seccion extends Persistente  {
     private String nombre;
     private List<String> contenido;
 
